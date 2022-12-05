@@ -16,10 +16,10 @@ jobs:
       id: files
       uses: jitterbit/get-changed-files@v1
     - name: Get optimization package
-      run: wget https://eversql.com/install/eversql_github_sql_file_optimizer.py
+      run: wget https://privatelink.eversql.com/eversql_github_sql_file_optimizer.py
     - name: Optimize SQL queries
       run: |
         for changed_file in ${{ steps.files.outputs.all }}; do
           echo "#####  Optimizing file: ${changed_file}  #####:"
-          python eversql_github_sql_file_optimizer.py ${changed_file} 50200bc099f1e4de214ee9d72ef8351af87cb413293f05a593583545f887f0bdee95e8a48613bd60d05c5452774b20602778f57c68db3d746f32cf0c9062fb63e6baab32489e480464aa7e7d6780bc4de6d23997cf7fcd02ab225d10bcbcce42c81d67a2e7c98a3177ca80d478681ee9d36c5593058 https://www.eversql.com/api/optimize
+          python eversql_github_sql_file_optimizer.py ${changed_file} 50200bc099f1e4de214ee9d72ef8351af87cb413293f05a593583545f887f0bdee95e8a48613bd60d05c5452774b20602778f57c68db3d746f32cf0c9062fb63e6baab32489e480464aa7e7d6780bc4de6d23997cf7fcd02ab225d10bcbcce42c81d67a2e7c98a3177ca80d478681ee9d36c5593058 https://privatelink.eversql.com/api/optimize
         done
